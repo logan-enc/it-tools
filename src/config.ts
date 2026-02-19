@@ -2,6 +2,12 @@ import { figue } from 'figue';
 
 export const config = figue({
   app: {
+    gitRepoUrl: {
+      doc: 'Github repository url',
+      format: 'string',
+      default: '',
+      env: 'GITHUB_BASE_URL',
+    },
     version: {
       doc: 'Application current version',
       format: 'string',
@@ -70,6 +76,7 @@ export const config = figue({
     ...import.meta.env,
     // Because the string 'import.meta.env.PACKAGE_VERSION' is statically replaced during build time (see 'define' in vite.config.ts)
     PACKAGE_VERSION: import.meta.env.PACKAGE_VERSION,
+    GITHUB_BASE_URL: import.meta.env.GITHUB_BASE_URL,
   })
   .validate()
   .getConfig();

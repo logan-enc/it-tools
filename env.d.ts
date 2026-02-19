@@ -4,6 +4,7 @@
 interface ImportMetaEnv {
   VITE_PLAUSIBLE_API_HOST: string;
   VITE_PLAUSIBLE_DOMAIN: string;
+  GITHUB_BASE_URL: string;
   PACKAGE_VERSION: string;
   GIT_SHORT_SHA: string;
   PROD: boolean;

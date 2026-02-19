@@ -2,7 +2,7 @@
 import { NIcon, useThemeVars } from 'naive-ui';
 
 import { RouterLink } from 'vue-router';
-import { Heart, Home2, Menu2 } from '@vicons/tabler';
+import { Home2, Menu2 } from '@vicons/tabler';
 
 import { storeToRefs } from 'pinia';
 import HeroGradient from '../assets/hero-gradient.svg?component';
@@ -18,6 +18,7 @@ import CollapsibleToolMenu from '@/components/CollapsibleToolMenu.vue';
 const themeVars = useThemeVars();
 const styleStore = useStyleStore();
 const version = config.app.version;
+const gitRepoUrl = config.app.gitRepoUrl;
 const commitSha = config.app.lastCommitSha.slice(0, 7);
 
 const { tracker } = useTracker();
@@ -63,7 +64,7 @@ const tools = computed<ToolCategory[]>(() => [
           <div>
             IT-Tools
 
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
+            <c-link target="_blank" rel="noopener" :href="`${gitRepoUrl}/tree/${version}`">
               v{{ version }}
             </c-link>
 
@@ -73,7 +74,7 @@ const tools = computed<ToolCategory[]>(() => [
                 target="_blank"
                 rel="noopener"
                 type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
+                :href="`${gitRepoUrl}/tree/${commitSha}`"
               >
                 {{ commitSha }}
               </c-link>
@@ -152,18 +153,7 @@ const tools = computed<ToolCategory[]>(() => [
 //     background-size: @size @size;
 // }
 
-.support-button {
-  background: rgb(37, 99, 108);
-  background: linear-gradient(48deg, rgba(37, 99, 108, 1) 0%, rgba(59, 149, 111, 1) 60%, rgba(20, 160, 88, 1) 100%);
-  color: #fff !important;
-  transition: padding ease 0.2s !important;
 
-  &:hover {
-    color: #fff;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-}
 
 .footer {
   text-align: center;

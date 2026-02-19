@@ -105,7 +105,8 @@ export default defineConfig({
     },
   },
   define: {
-    'import.meta.env.PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
+    'import.meta.env.PACKAGE_VERSION': JSON.stringify(process.env.PACKAGE_VERSION),
+    'import.meta.env.GITHUB_BASE_URL': JSON.stringify(process.env.GITHUB_BASE_URL),
   },
   test: {
     exclude: [...configDefaults.exclude, '**/*.e2e.spec.ts'],
